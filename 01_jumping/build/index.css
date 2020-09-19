@@ -27,20 +27,18 @@ body {
 }
 @keyframes jump {
   0% { top: 150px; }
-  5% { top: 100px; }
-  50% { top: 80px; }
-  70% { top: 100px; }
-  85% { top: 130px; }
+  5% { top: 80px; }
+  50% { top: 30px; }
+  70% { top: 50px; }
   100% { top: 150px; }
 }
 
 #block {
-  width: 20px;
-  height: 20px;
-  background-color: #209cee;
   position: relative;
-  top: 130px;
-  left: 500px;
+  width: 84px;
+  height: 90px;
+  top: 56px;
+  left: 494px;
 }
 .move {
   animation: block 1s infinite linear;

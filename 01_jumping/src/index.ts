@@ -3,6 +3,7 @@ const block = document.getElementById("block");
 const jumpBtn = document.getElementById("jumpBtn");
 const startBtn = document.getElementById("startBtn");
 const message = document.getElementById("message");
+const octocat = document.getElementById("octocat");
 
 let clickNum: number = 0;
 
@@ -11,6 +12,7 @@ if(!block) throw new Error('blockがありません');
 if(!jumpBtn) throw new Error('Jump buttonがありません');
 if(!startBtn) throw new Error('Start buttonがありません');
 if(!message) throw new Error('message がありません');
+if(!octocat) throw new Error('octocat がありません');
 
 jumpBtn.addEventListener("click", jump);
 
@@ -30,6 +32,7 @@ startBtn.addEventListener("click", () => {
   message.innerHTML = "";
   clickNum = 0;
   if(!block.classList.contains("move")) block.classList.add("move");
+  octocat.style.display = "none";
 
   const checkDead = setInterval(() => {
     // 現在のスタイルを取得し(getComputedStyle)、そこから特定の値を取得
@@ -37,9 +40,10 @@ startBtn.addEventListener("click", () => {
     const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
   
     // block とキャラがぶつかったらゲームオーバー
-    if(blockLeft < 50 && blockLeft > 0 && charaTop >= 130) {
+    if(blockLeft < 50 && blockLeft > -54 && charaTop >= 80) {
       message.innerHTML = `<p>Game Over. <br />You jumped ${clickNum} times!</p>`;
       block.classList.remove("move");
+      octocat.style.display = "block";
     }
   }, 10);
 });
