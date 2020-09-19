@@ -1,0 +1,14 @@
+{
+  "name": "JavaScriptGame",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nouvelle/JavaScriptGame.git",
+  "author": "nouvelle <nouvellenuts@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "surge 01_jumping/build jumping.surge.sh"
+  },
+  "dependencies": {
+    "typescript": "^4.0.3"
+  }
+}
