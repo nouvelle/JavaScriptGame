@@ -1,3 +1,3 @@
 # JavaScriptGame
 
-![jumping gae](./img/jumping.gif)
+![jumping gage](./img/jumping.gif)
