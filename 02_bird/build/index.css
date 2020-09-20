@@ -7,6 +7,7 @@ body {
 #game {
   max-width: 400px;
   height: 500px;
+  position: relative;
   border: 3px solid #363636;
   margin: 20px auto;
   background-color: #fff;
@@ -17,7 +18,7 @@ body {
   position: relative;
   width: 50px;
   height: 500px;
-  background-color: #333;
+  background-color: #1560ad;
   left: 400px;
 }
 .move {
@@ -27,10 +28,6 @@ body {
   0% { left: 400px; }
   100% { left: -50px; }
 }
-.stop {
-  animation-play-state: paused;
-}
-
 #hole {
   width: 50px;
   height: 150px;
@@ -41,12 +38,25 @@ body {
 }
 
 #chara {
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
   background-color: #e76e55;
   position: absolute;
   top: 100px;
-  border-radius: 50%;
+  left: 50px;
+  background: url("./piyo.png") no-repeat;
+}
+.piyo {
+  animation: piyo 1s steps(3) infinite;
+}
+@keyframes piyo {
+  to {
+    background-position: -150px 0;
+  }
+}
+
+.stop {
+  animation-play-state: paused;
 }
 
 #wrapBtn {

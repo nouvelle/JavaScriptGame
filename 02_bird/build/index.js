@@ -35,6 +35,8 @@ startBtn.addEventListener("click", () => {
         block.classList.add("move");
     if (!hole.classList.contains("move"))
         hole.classList.add("move");
+    if (!chara.classList.contains("piyo"))
+        chara.classList.add("piyo");
     if (block.classList.contains("stop"))
         block.classList.remove("stop");
     if (hole.classList.contains("stop"))
@@ -55,21 +57,26 @@ startBtn.addEventListener("click", () => {
         const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
         const holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
         // 地面からの距離：キャラクターが地面の下に潜ったらマイナスになる
-        const cTop = -(520 - charaTop);
-        console.log("charaTop", charaTop);
+        const cTop = -(510 - charaTop);
         // Game Over
         // キャラクターが地面につく or ブロックの左側がキャラクターにぶつかる and キャラクターがブロックより上にいる
-        // or ブロックの左側がキャラクターにぶつかる and キャラクターがブロックより下にいる(穴は150pxだけどキャラクターは20pxなので、130px)
-        if ((charaTop > 520) || (blockLeft < 20) && (blockLeft > -50) && ((cTop < holeTop) || (cTop > holeTop + 130))) {
+        // or ブロックの左側がキャラクターにぶつかる and キャラクターがブロックより下にいる(穴は150px, キャラクターを50pxと計算すると、100px)
+        if ((charaTop > 500)
+            || (blockLeft < 98) && (blockLeft > 0) && ((cTop < holeTop)
+                || (blockLeft < 98) && (blockLeft > 0) && (cTop > holeTop + 120))) {
             dialogBtn.click();
             dialog.innerText = `Score: ${counter} !`;
+            // 初期化
             clearInterval(gravity);
             jumpBtn.removeEventListener("click", jump);
             counter = 0;
+            // アニメーション停止
             if (!block.classList.contains("stop"))
                 block.classList.add("stop");
             if (!hole.classList.contains("stop"))
                 hole.classList.add("stop");
+            if (!chara.classList.contains("stop"))
+                chara.classList.add("stop");
         }
     }, 10);
 });
