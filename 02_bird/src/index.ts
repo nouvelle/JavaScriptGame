@@ -48,15 +48,17 @@ startBtn.addEventListener("click", () => {
     const holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
 
     // 地面からの距離：キャラクターが地面の下に潜ったらマイナスになる
-    const cTop = - (510 - charaTop);
+    const cTop = - (513 - charaTop);
     
     // Game Over
     // キャラクターが地面につく or ブロックの左側がキャラクターにぶつかる and キャラクターがブロックより上にいる
     // or ブロックの左側がキャラクターにぶつかる and キャラクターがブロックより下にいる(穴は150px, キャラクターを50pxと計算すると、100px)
     if((charaTop > 500) 
-      || (blockLeft < 98) && (blockLeft > 0) && ((cTop < holeTop)
-      || (blockLeft < 98) && (blockLeft > 0) && (cTop > holeTop + 120))
+      || (blockLeft < 95) && (blockLeft > 0) && ((cTop < holeTop)
+      || (blockLeft < 95) && (blockLeft > 0) && (cTop > holeTop + 120))
     ){
+      console.log("cTop", cTop)
+      console.log("holeTop", holeTop)
       dialogBtn.click();
       dialog.innerText = `Score: ${counter} !`;
       // 初期化

@@ -99,3 +99,16 @@ section.icon-list {
   margin-left: 20px;
   line-height: 2.3em;
 }
+
+
+@media screen and (max-width: 480px) { 
+  #game {
+    width: 350px;
+    height: 500px;
+    position: relative;
+    border: 3px solid #363636;
+    margin: 20px auto;
+    background-color: #fff;
+    overflow: hidden;
+  }
+}
