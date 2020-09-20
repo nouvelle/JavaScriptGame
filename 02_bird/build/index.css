@@ -1,0 +1,91 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: skyblue;
+}
+
+#game {
+  max-width: 400px;
+  height: 500px;
+  border: 3px solid #363636;
+  margin: 20px auto;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+#block {
+  position: relative;
+  width: 50px;
+  height: 500px;
+  background-color: #333;
+  left: 400px;
+}
+.move {
+  animation: block 2s infinite linear;
+}
+@keyframes block {
+  0% { left: 400px; }
+  100% { left: -50px; }
+}
+.stop {
+  animation-play-state: paused;
+}
+
+#hole {
+  width: 50px;
+  height: 150px;
+  background-color: #fff;
+  position: relative;
+  left: 400px;
+  top: -350px;
+}
+
+#chara {
+  width: 20px;
+  height: 20px;
+  background-color: #e76e55;
+  position: absolute;
+  top: 100px;
+  border-radius: 50%;
+}
+
+#wrapBtn {
+  display: flex;
+  justify-content: space-around;
+}
+
+#dialogBtn {
+  display: none;
+}
+#message {
+  margin: 20px 5%;
+  min-height: 100px;
+  text-align: center;
+  font-size: 1em;
+  line-height: 2em;
+}
+#dialog-rounded menu {
+  padding: 0;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+  background-color: #aaa;
+}
+section.icon-list {
+  width: 32px;
+  height: 32px;
+}
+.nes-icon {
+  margin: 0;
+}
+.copyright {
+  margin-left: 20px;
+  line-height: 2.3em;
+}

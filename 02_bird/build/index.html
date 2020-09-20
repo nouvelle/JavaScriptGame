@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./index.css">
+  <title>Jumping Game</title>
+</head>
+<body>
+  <div id="game">
+    <div id="block"></div>
+    <div id="hole"></div>
+    <div id="chara"></div>
+  </div>
+  <div id="wrapBtn">
+    <button id="startBtn" type="button" class="nes-btn is-error">START</button>
+    <button id="jumpBtn" type="button" class="nes-btn is-primary">JUMP!</button>
+  </div>
+  
+  <!-- Rounded dialog -->
+  <section id="message">
+    <button id="dialogBtn" type="button" class="nes-btn is-primary" onclick="document.getElementById('dialog-rounded').showModal();"></button>
+    <dialog class="nes-dialog is-rounded" id="dialog-rounded">
+      <form method="dialog">
+        <p class="title">Game Over</p>
+        <p id="dialog"></p>
+        <menu class="dialog-menu">
+          <button id="dialogClose" class="nes-btn">Cancel</button>
+        </menu>
+      </form>
+    </dialog>
+  </section>
+  
+  <footer id="footer">
+    <a href="https://github.com/nouvelle/JavaScriptGame.git">
+      <section class="icon-list">
+        <i class="nes-icon github"></i>
+      </section>
+    </a>
+      <div class="copyright">© 2020 eriko.</div>
+  </footer>
+</body>
+<script src="./index.js"></script>
+</html>
