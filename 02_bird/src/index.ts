@@ -47,18 +47,20 @@ startBtn.addEventListener("click", () => {
     const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
     const holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
 
-    // 地面からの距離：キャラクターが地面の下に潜ったらマイナスになる
-    const cTop = - (513 - charaTop);
+    // 地面からキャラクターのtopまでの距離
+    const cTop = - (500 - charaTop);
     
-    // Game Over
-    // キャラクターが地面につく or ブロックの左側がキャラクターにぶつかる and キャラクターがブロックより上にいる
-    // or ブロックの左側がキャラクターにぶつかる and キャラクターがブロックより下にいる(穴は150px, キャラクターを50pxと計算すると、100px)
-    if((charaTop > 500) 
-      || (blockLeft < 95) && (blockLeft > 0) && ((cTop < holeTop)
-      || (blockLeft < 95) && (blockLeft > 0) && (cTop > holeTop + 120))
+    // Game Over 判定
+    // 1. キャラクターが地面の下に完全に隠れる（charaTop > 450）
+    // 2. ブロックの上半分 or 下半分の位置でキャラクターとぶつかる
+      //  - ブロックの左側がキャラクターにぶつかる(blockLeft < 95 : 5px余裕を持たせてる)
+      //  - ブロックの左側がエリア内にある(blockLeft > 5 : 5px余裕を持たせてる)
+      //  - ブロックの上半分の位置でキャラクターとぶつかる
+      //      or
+      //  - ブロックの下半分の位置でキャラクターとぶつかる(穴は150px, キャラクターを50pxと計算すると、100px:(cTop > holeTop + 100)
+    if((charaTop > 450) 
+      || (blockLeft < 95) && (blockLeft > 5) && ((cTop < holeTop) || (cTop > holeTop + 100))
     ){
-      console.log("cTop", cTop)
-      console.log("holeTop", holeTop)
       dialogBtn.click();
       dialog.innerText = `Score: ${counter} !`;
       // 初期化
