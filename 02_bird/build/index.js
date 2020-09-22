@@ -5,9 +5,9 @@ const chara = document.getElementById("chara");
 const jumpBtn = document.getElementById("jumpBtn");
 const startBtn = document.getElementById("startBtn");
 const message = document.getElementById("message");
-const dialogBtn = document.getElementById('dialogBtn');
 const dialog = document.getElementById('dialog');
 const dialogClose = document.getElementById('dialogClose');
+const contentCover = document.getElementById('contentCover');
 let jumping = 0;
 let counter = 0;
 if (!block)
@@ -22,12 +22,12 @@ if (!startBtn)
     throw new Error('Start buttonがありません');
 if (!message)
     throw new Error('message がありません');
-if (!dialogBtn)
-    throw new Error('dialogBtn がありません');
 if (!dialog)
     throw new Error('dialog がありません');
 if (!dialogClose)
     throw new Error('dialogClose がありません');
+if (!contentCover)
+    throw new Error('contentCover がありません');
 // GAME START!!
 startBtn.addEventListener("click", () => {
     // 初期化
@@ -41,6 +41,10 @@ startBtn.addEventListener("click", () => {
         block.classList.remove("stop");
     if (hole.classList.contains("stop"))
         hole.classList.remove("stop");
+    if (!contentCover.classList.contains("dispNone"))
+        contentCover.classList.add("dispNone");
+    if (!message.classList.contains("dispNone"))
+        message.classList.add("dispNone");
     jumpBtn.addEventListener("click", jump);
     // CSS アニメーションの反復が1回分終了し、次の回が始まったときに発生するイベント
     hole.addEventListener("animationiteration", () => {
@@ -68,8 +72,11 @@ startBtn.addEventListener("click", () => {
         //  - ブロックの下半分の位置でキャラクターとぶつかる(穴は150px, キャラクターを50pxと計算すると、100px:(cTop > holeTop + 100)
         if ((charaTop > 450)
             || (blockLeft < 95) && (blockLeft > 5) && ((cTop < holeTop) || (cTop > holeTop + 100))) {
-            dialogBtn.click();
             dialog.innerText = `Score: ${counter} !`;
+            if (contentCover.classList.contains("dispNone"))
+                contentCover.classList.remove("dispNone");
+            if (message.classList.contains("dispNone"))
+                message.classList.remove("dispNone");
             // 初期化
             clearInterval(gravity);
             jumpBtn.removeEventListener("click", jump);
@@ -86,6 +93,10 @@ startBtn.addEventListener("click", () => {
 });
 // ダイアログがクリックされたら位置を元に戻す
 dialogClose.addEventListener("click", () => {
+    if (!contentCover.classList.contains("dispNone"))
+        contentCover.classList.add("dispNone");
+    if (!message.classList.contains("dispNone"))
+        message.classList.add("dispNone");
     if (block.classList.contains("move"))
         block.classList.remove("move");
     if (hole.classList.contains("move"))

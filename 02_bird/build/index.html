@@ -19,19 +19,13 @@
     <button id="startBtn" type="button" class="nes-btn is-error">START</button>
     <button id="jumpBtn" type="button" class="nes-btn is-primary">JUMP!</button>
   </div>
-  
-  <!-- Rounded dialog -->
-  <section id="message">
-    <button id="dialogBtn" type="button" class="nes-btn is-primary" onclick="document.getElementById('dialog-rounded').showModal();"></button>
-    <dialog class="nes-dialog is-rounded" id="dialog-rounded">
-      <form method="dialog">
-        <p class="title">Game Over</p>
-        <p id="dialog"></p>
-        <menu class="dialog-menu">
-          <button id="dialogClose" class="nes-btn">Cancel</button>
-        </menu>
-      </form>
-    </dialog>
+  <div id="contentCover" class="dispNone"></div>
+  <section id="message" class="dispNone">
+    <div class="nes-container is-rounded is-dark">
+      <div class="title">Game Over</div>
+      <p id="dialog"></p>
+      <button id="dialogClose" class="nes-btn" >close</button>
+    </div>
   </section>
   
   <footer id="footer">

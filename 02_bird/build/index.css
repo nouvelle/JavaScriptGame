@@ -71,12 +71,30 @@ body {
 #message {
   margin: 20px 5%;
   min-height: 100px;
+  min-width: 300px;
   text-align: center;
   font-size: 1em;
   line-height: 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  -webkit-transform: translate(-50%, -100%);
+  -ms-transform: translate(-50%, -100%);
+  z-index: 3;
 }
-#dialog-rounded menu {
-  padding: 0;
+
+#contentCover {
+  background-color: rgba(33,33,33,0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+#message .nes-container {
+  padding-bottom: 30px;
 }
 
 #footer {
@@ -112,4 +130,8 @@ section.icon-list {
     background-color: #fff;
     overflow: hidden;
   }
+}
+
+.dispNone {
+  display: none;
 }
