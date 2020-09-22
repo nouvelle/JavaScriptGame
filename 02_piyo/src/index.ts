@@ -29,6 +29,7 @@ startBtn.addEventListener("click", () => {
   if(!chara.classList.contains("piyo")) chara.classList.add("piyo");
   if(block.classList.contains("stop")) block.classList.remove("stop");
   if(hole.classList.contains("stop")) hole.classList.remove("stop");
+  if(chara.classList.contains("stop")) chara.classList.remove("stop");
   if(!contentCover.classList.contains("dispNone")) contentCover.classList.add("dispNone");
   if(!message.classList.contains("dispNone")) message.classList.add("dispNone");
   jumpBtn.addEventListener("click", jump);

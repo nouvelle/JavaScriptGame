@@ -41,6 +41,8 @@ startBtn.addEventListener("click", () => {
         block.classList.remove("stop");
     if (hole.classList.contains("stop"))
         hole.classList.remove("stop");
+    if (chara.classList.contains("stop"))
+        chara.classList.remove("stop");
     if (!contentCover.classList.contains("dispNone"))
         contentCover.classList.add("dispNone");
     if (!message.classList.contains("dispNone"))
