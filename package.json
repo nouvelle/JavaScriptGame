@@ -6,7 +6,8 @@
   "author": "nouvelle <nouvellenuts@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "surge 01_jumping/build jumping.surge.sh"
+    "build1": "surge 01_jumping/build jumping.surge.sh",
+    "build2": "surge 02_piyo/build jumping-piyo.surge.sh"
   },
   "dependencies": {
     "typescript": "^4.0.3"
